@@ -1,0 +1,184 @@
+@import "tailwindcss";
+@import "./rima-landing.css";
+
+/* Shared design tokens for the Rimma Vera landing page. */
+:root {
+  --background: #f8f1ea;
+  --surface: #fff9f3;
+  --surface-muted: #f2e6db;
+  --text: #2d2528;
+  --muted: #74686c;
+  --accent: #7a3e52;
+  --accent-deep: #522636;
+  --accent-soft: #d8a7b1;
+  --sand: #e8d6c5;
+  --line: rgb(45 37 40 / 12%);
+  --light-line: rgb(255 249 243 / 16%);
+
+  --cream: var(--background);
+  --milk: var(--surface);
+  --warm-brown: var(--accent-deep);
+  --chocolate: var(--text);
+  --powder: var(--accent-soft);
+  --sage: #a89c8a;
+  --gold: #c49477;
+  --rose-shadow: var(--accent);
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-milk: var(--milk);
+  --color-warm-brown: var(--warm-brown);
+  --color-chocolate: var(--chocolate);
+  --color-powder: var(--powder);
+  --color-sage: var(--sage);
+  --color-gold: var(--gold);
+  --font-display: var(--font-cormorant);
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-manrope);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  overflow-x: clip;
+}
+
+body {
+  background:
+    radial-gradient(circle at 83% 5%, rgb(216 167 177 / 17%), transparent 28rem),
+    radial-gradient(circle at 8% 32%, rgb(232 214 197 / 36%), transparent 25rem),
+    var(--background);
+  color: var(--text);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  max-width: 100%;
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+::selection {
+  background: rgb(216 167 177 / 45%);
+  color: var(--text);
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, #4d3328 10%, var(--warm-brown) 48%, #bb8659 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.decorative-blur {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(96px);
+  opacity: 0.54;
+}
+
+.card-surface {
+  background:
+    linear-gradient(145deg, rgb(255 255 255 / 84%), rgb(255 249 242 / 60%)),
+    var(--milk);
+  border: 1px solid rgb(121 90 72 / 13%);
+  box-shadow:
+    0 18px 50px rgb(38 27 23 / 7%),
+    0 2px 0 rgb(255 255 255 / 72%) inset;
+  backdrop-filter: blur(12px);
+}
+
+.premium-panel {
+  background:
+    radial-gradient(circle at 85% 10%, rgb(214 163 157 / 20%), transparent 26rem),
+    radial-gradient(circle at 10% 100%, rgb(158 175 154 / 15%), transparent 24rem),
+    #2b1e19;
+  box-shadow: 0 28px 80px rgb(38 27 23 / 22%);
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--warm-brown);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.section-kicker::before {
+  width: 2rem;
+  height: 1px;
+  background: var(--gold);
+  content: "";
+}
+
+.btn-primary {
+  background: linear-gradient(
+    125deg,
+    #4a3026,
+    var(--warm-brown) 50%,
+    #b98359
+  );
+  color: var(--milk);
+  box-shadow:
+    0 12px 24px rgb(75 48 38 / 22%),
+    0 1px 0 rgb(255 255 255 / 20%) inset;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.btn-secondary {
+  background: rgb(255 255 255 / 60%);
+  border: 1px solid rgb(121 90 72 / 20%);
+  color: var(--chocolate);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+@media (hover: hover) {
+  .card-surface:hover {
+    border-color: rgb(203 162 115 / 45%);
+    box-shadow:
+      0 24px 55px rgb(38 27 23 / 12%),
+      0 2px 0 rgb(255 255 255 / 72%) inset;
+  }
+
+  .btn-primary:hover {
+    filter: brightness(1.08) saturate(1.05);
+    box-shadow: 0 16px 30px rgb(75 48 38 / 30%);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary:hover {
+    background: white;
+    border-color: color-mix(in srgb, var(--gold) 35%, transparent);
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 767px) {
+  .decorative-blur {
+    filter: blur(70px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

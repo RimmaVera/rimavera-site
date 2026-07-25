@@ -1,5 +1,5 @@
 import { Container, Eyebrow, Section } from "@/components/Section";
-import { about, reviewSlots } from "@/lib/constants";
+import { about } from "@/lib/constants";
 
 export function AboutMe() {
   return (
@@ -60,32 +60,6 @@ export function AboutMe() {
                 </article>
               ))}
             </div>
-          </div>
-        </div>
-
-        <div className="about-reviews">
-          <div className="about-reviews__intro">
-            <div>
-              <Eyebrow>Отзывы</Eyebrow>
-              <h2 className="mt-5 font-display text-4xl leading-[0.94] font-medium tracking-[-0.05em] text-[var(--text)] sm:text-5xl">
-                Истории клиентов
-              </h2>
-            </div>
-            <p className="max-w-xl text-sm leading-6 text-[var(--muted)]">
-              Отзывы публикуются анонимно и только после письменного согласия
-              клиента. Здесь подготовлены места для реальных отзывов по этим
-              запросам.
-            </p>
-          </div>
-
-          <div className="about-reviews__grid">
-            {reviewSlots.map((review) => (
-              <article key={`${review.audience}-${review.topic}`} className="review-slot">
-                <span className="review-slot__audience">{review.audience}</span>
-                <h3>{review.topic}</h3>
-                <p>Отзыв будет добавлен после согласования с клиентом.</p>
-              </article>
-            ))}
           </div>
         </div>
       </Container>

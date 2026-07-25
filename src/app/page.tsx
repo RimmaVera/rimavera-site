@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SocialBlock } from "@/components/SocialBlock";
+import { Testimonials } from "@/components/Testimonials";
 import { WorkFormats } from "@/components/WorkFormats";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
         <WorkFormats />
         <FAQSection />
         <SocialBlock />
+        <Testimonials />
       </main>
       <ScrollToTop />
       <Footer />

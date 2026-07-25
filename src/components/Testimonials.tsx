@@ -1,46 +1,36 @@
-"use client";
-
-import { Quote } from "lucide-react";
-import {
-  FadeIn,
-  StaggerContainer,
-  StaggerItem,
-} from "@/components/AnimatedSection";
-import { SectionHeading } from "@/components/SectionHeading";
-import { Container, Section } from "@/components/ui";
-import { testimonials } from "@/data/landing";
+import { Container, Eyebrow, Section } from "@/components/Section";
+import { reviewSlots } from "@/lib/constants";
 
 export function Testimonials() {
   return (
-    <Section id="testimonials">
+    <Section id="reviews" className="testimonials-section">
       <Container>
-        <FadeIn>
-          <SectionHeading
-            title={testimonials.title}
-            subtitle={testimonials.subtitle}
-          />
-        </FadeIn>
+        <div className="testimonials-intro">
+          <div>
+            <Eyebrow>Отзывы</Eyebrow>
+            <h2 className="mt-5 font-display text-4xl leading-[0.94] font-medium tracking-[-0.05em] text-[var(--text)] sm:text-5xl">
+              Истории клиентов
+            </h2>
+          </div>
+          <p className="max-w-xl text-sm leading-6 text-[var(--muted)]">
+            Отзывы публикуются анонимно и только после письменного согласия
+            клиента. Здесь подготовлены места для реальных отзывов по этим
+            запросам.
+          </p>
+        </div>
 
-        <StaggerContainer className="grid gap-5 md:grid-cols-2 lg:gap-6">
-          {testimonials.items.map((item) => (
-            <StaggerItem key={item.author}>
-              <article className="card-surface relative flex h-full flex-col rounded-3xl p-6 sm:p-7">
-                <Quote
-                  className="mb-4 text-powder/80"
-                  size={28}
-                  aria-hidden
-                />
-                <p className="flex-1 text-base leading-relaxed text-warm-brown/90 italic">
-                  «{item.text}»
-                </p>
-                <div className="mt-6 border-t border-warm-brown/10 pt-4">
-                  <p className="font-medium text-chocolate">{item.author}</p>
-                  <p className="mt-1 text-xs text-warm-brown/65">{item.note}</p>
-                </div>
-              </article>
-            </StaggerItem>
+        <div className="testimonials-grid">
+          {reviewSlots.map((review) => (
+            <article
+              key={`${review.audience}-${review.topic}`}
+              className="review-slot"
+            >
+              <span className="review-slot__audience">{review.audience}</span>
+              <h3>{review.topic}</h3>
+              <p>Отзыв будет добавлен после согласования с клиентом.</p>
+            </article>
           ))}
-        </StaggerContainer>
+        </div>
       </Container>
     </Section>
   );

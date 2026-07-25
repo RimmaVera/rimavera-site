@@ -25,11 +25,11 @@ export function Header() {
   return (
     <header className="site-header">
       <Container>
-        <div className="flex h-[7.25rem] items-center justify-between gap-5 lg:h-[7.5rem]">
+        <div className="site-header__inner flex h-[7.25rem] items-center justify-between gap-3 lg:gap-5 lg:h-[7.5rem]">
           <a
             href="#top"
             aria-label={`${site.name} — ${site.profession}, ${site.specialty} — на главную`}
-            className="group flex min-w-0 flex-col outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--background)]"
+            className="group flex min-w-0 shrink-0 flex-col outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--background)]"
             onClick={() => setIsMenuOpen(false)}
           >
             <BrandLogo />
@@ -50,9 +50,9 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex shrink-0 items-center gap-2.5">
             <ButtonLink
-              className="hidden min-h-12 px-5 py-3 text-[0.8rem] sm:inline-flex"
+              className="header-telegram-button hidden min-h-12 px-5 py-3 text-[0.8rem] lg:inline-flex"
               ariaLabel="Перейти в Telegram Rimma Vera"
             >
               Telegram
@@ -60,7 +60,7 @@ export function Header() {
             <ButtonLink
               href={site.instagramUrl}
               variant="secondary"
-              className="hidden min-h-12 px-5 py-3 text-[0.8rem] lg:inline-flex"
+              className="hidden min-h-12 px-5 py-3 text-[0.8rem] xl:inline-flex"
               ariaLabel="Перейти в Instagram Rimma Vera"
             >
               Instagram
@@ -71,7 +71,7 @@ export function Header() {
               aria-expanded={isMenuOpen}
               aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
               onClick={() => setIsMenuOpen((open) => !open)}
-              className="inline-flex size-12 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--surface)] text-[var(--text)] shadow-[0_4px_16px_rgb(45_37_40_/_0.05)] outline-none transition hover:border-[var(--accent-soft)] focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] xl:hidden"
+              className="site-header__menu inline-flex size-12 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--surface)] text-[var(--text)] shadow-[0_4px_16px_rgb(45_37_40_/_0.05)] outline-none transition hover:border-[var(--accent-soft)] focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)] xl:hidden"
             >
               {isMenuOpen ? <X size={22} /> : <Menu size={23} />}
             </button>

@@ -6,37 +6,24 @@ import { BrandLogo } from "@/components/BrandLogo";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container } from "@/components/Section";
 import { navigation, site } from "@/lib/constants";
-import { cn } from "@/lib/utils";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const updateHeader = () => setIsScrolled(window.scrollY > 10);
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") setIsMenuOpen(false);
     };
 
-    updateHeader();
-    window.addEventListener("scroll", updateHeader, { passive: true });
     window.addEventListener("keydown", closeOnEscape);
 
     return () => {
-      window.removeEventListener("scroll", updateHeader);
       window.removeEventListener("keydown", closeOnEscape);
     };
   }, []);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        isScrolled || isMenuOpen
-          ? "border-b border-[var(--line)] bg-[rgb(248_241_234_/_0.88)] shadow-[0_12px_35px_rgb(45_37_40_/_0.06)] backdrop-blur-xl"
-          : "bg-transparent",
-      )}
-    >
+    <header className="site-header">
       <Container>
         <div className="flex h-[7.25rem] items-center justify-between gap-5 lg:h-[7.5rem]">
           <a
@@ -70,6 +57,14 @@ export function Header() {
             >
               Telegram
             </ButtonLink>
+            <ButtonLink
+              href={site.instagramUrl}
+              variant="secondary"
+              className="hidden min-h-12 px-5 py-3 text-[0.8rem] lg:inline-flex"
+              ariaLabel="Перейти в Instagram Rimma Vera"
+            >
+              Instagram
+            </ButtonLink>
             <button
               type="button"
               aria-controls={isMenuOpen ? "mobile-navigation" : undefined}
@@ -87,7 +82,7 @@ export function Header() {
       {isMenuOpen && (
         <div
           id="mobile-navigation"
-          className="border-t border-[var(--line)] bg-[rgb(248_241_234_/_0.95)] xl:hidden"
+          className="border-t border-[var(--line)] bg-[var(--background)] xl:hidden"
         >
           <Container className="py-4">
             <nav
@@ -109,6 +104,14 @@ export function Header() {
                 ariaLabel="Перейти в Telegram Rimma Vera"
               >
                 Перейти в Telegram
+              </ButtonLink>
+              <ButtonLink
+                href={site.instagramUrl}
+                variant="secondary"
+                className="w-full"
+                ariaLabel="Перейти в Instagram Rimma Vera"
+              >
+                Перейти в Instagram
               </ButtonLink>
             </nav>
           </Container>

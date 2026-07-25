@@ -5,7 +5,7 @@ import { site } from "@/lib/constants";
 
 export function SocialBlock() {
   return (
-    <Section id="contacts" className="pb-20 sm:pb-28 lg:pb-32">
+    <Section id="contacts" className="pb-16 sm:pb-20 lg:pb-24">
       <Container>
         <div className="grid items-end gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>
@@ -14,8 +14,10 @@ export function SocialBlock() {
               Канал «Тело говорит»
             </h2>
             <p className="mt-6 max-w-lg text-[1rem] leading-7 text-[var(--muted)]">
-              Короткие наблюдения о теле, тревоге, переедании и честном
-              контакте с собой.
+              Блог, после которого понятнее, а не тревожнее
+              <br />
+              Короткие объяснения, честное профессиональное мнение и практики,
+              которые можно применить между делами.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ButtonLink>Перейти в Telegram</ButtonLink>

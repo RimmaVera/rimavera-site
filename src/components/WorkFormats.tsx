@@ -1,6 +1,8 @@
+import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container, Eyebrow, Section } from "@/components/Section";
 import { workFormats } from "@/lib/constants";
+import privateSculpture from "../../public/images/rimma-vera/private-sculpture.png";
 
 export function WorkFormats() {
   return (
@@ -23,45 +25,103 @@ export function WorkFormats() {
         </div>
 
         <div className="work-formats-grid">
-          {workFormats.map((format) => (
-            <article
-              id={format.id}
-              key={format.title}
-              className={`work-format-card work-format-card--${format.variant}`}
-            >
-              <div>
-                <div className="flex items-center justify-between gap-4">
-                  <span className="work-format-card__number">
-                    {format.number}
-                  </span>
-                  <span className="work-format-card__type">{format.type}</span>
+          {workFormats.map((format) =>
+            format.variant === "private" ? (
+              <article
+                id={format.id}
+                key={format.title}
+                className="work-format-card work-format-card--private"
+              >
+                <div className="private-format-photo">
+                  <Image
+                    src={privateSculpture}
+                    alt="Абстрактная скульптура в бордовых и золотистых тонах"
+                    fill
+                    quality={84}
+                    sizes="(max-width: 1023px) calc(100vw - 40px), 42vw"
+                    className="object-cover object-center"
+                  />
                 </div>
-                <h3 className="mt-9 font-display text-[2rem] leading-[0.92] font-medium tracking-[-0.045em]">
-                  {format.title}
-                </h3>
-                <p className="mt-5 max-w-sm text-sm leading-6 text-[var(--muted)]">
-                  {format.text}
-                </p>
-              </div>
-              <div className="mt-8 flex flex-col gap-4 border-t border-current/12 pt-5">
-                {format.secondaryFormat && (
-                  <span className="work-format-card__extra">
-                    {format.secondaryFormat}
-                  </span>
-                )}
-                {format.price && (
-                  <span className="work-format-card__price">{format.price}</span>
-                )}
-                <ButtonLink
-                  href={format.href}
-                  variant={format.variant === "private" ? "light" : "primary"}
-                  className="w-full justify-between"
-                >
-                  {format.cta}
-                </ButtonLink>
-              </div>
-            </article>
-          ))}
+                <div className="private-format-content">
+                  <div>
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="work-format-card__number">
+                        {format.number}
+                      </span>
+                      <span className="work-format-card__type">
+                        {format.type}
+                      </span>
+                    </div>
+                    <h3 className="mt-9 font-display text-[2rem] leading-[0.92] font-medium tracking-[-0.045em]">
+                      {format.title}
+                    </h3>
+                    <p className="mt-5 max-w-xl text-sm leading-6">
+                      {format.text}
+                    </p>
+                  </div>
+                  <div className="mt-8 flex flex-col gap-4 border-t border-current/12 pt-5">
+                    {format.secondaryFormat && (
+                      <span className="work-format-card__extra">
+                        {format.secondaryFormat}
+                      </span>
+                    )}
+                    {format.price && (
+                      <span className="work-format-card__price">
+                        {format.price}
+                      </span>
+                    )}
+                    <ButtonLink
+                      href={format.href}
+                      variant="light"
+                      className="w-full justify-between lg:w-auto"
+                    >
+                      {format.cta}
+                    </ButtonLink>
+                  </div>
+                </div>
+              </article>
+            ) : (
+              <article
+                id={format.id}
+                key={format.title}
+                className={`work-format-card work-format-card--${format.variant}`}
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="work-format-card__number">
+                      {format.number}
+                    </span>
+                    <span className="work-format-card__type">{format.type}</span>
+                  </div>
+                  <h3 className="mt-9 font-display text-[2rem] leading-[0.92] font-medium tracking-[-0.045em]">
+                    {format.title}
+                  </h3>
+                  <p className="mt-5 max-w-sm text-sm leading-6 text-[var(--muted)]">
+                    {format.text}
+                  </p>
+                </div>
+                <div className="mt-8 flex flex-col gap-4 border-t border-current/12 pt-5">
+                  {format.secondaryFormat && (
+                    <span className="work-format-card__extra">
+                      {format.secondaryFormat}
+                    </span>
+                  )}
+                  {format.price && (
+                    <span className="work-format-card__price">
+                      {format.price}
+                    </span>
+                  )}
+                  <ButtonLink
+                    href={format.href}
+                    variant="primary"
+                    className="w-full justify-between"
+                  >
+                    {format.cta}
+                  </ButtonLink>
+                </div>
+              </article>
+            ),
+          )}
         </div>
       </Container>
     </Section>

@@ -1,7 +1,7 @@
 export const siteConfig = {
   expertName: "Имя Эксперта",
   tagline: "Психолог и нутрициолог",
-  telegramUrl: "https://t.me/your_username",
+  telegramUrl: "https://t.me/rimmavera_psy",
   siteUrl: "https://your-domain.ru",
   description:
     "Помогаю женщинам снижать вес через работу с пищевым поведением, привычками и эмоциональными причинами переедания.",

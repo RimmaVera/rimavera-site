@@ -60,7 +60,7 @@ export function Header() {
             <ButtonLink
               href={site.instagramUrl}
               variant="secondary"
-              className="hidden min-h-12 px-5 py-3 text-[0.8rem] xl:inline-flex"
+              className="header-instagram-button hidden min-h-12 px-5 py-3 text-[0.8rem] xl:inline-flex"
               ariaLabel="Перейти в Instagram Rimma Vera"
             >
               Instagram

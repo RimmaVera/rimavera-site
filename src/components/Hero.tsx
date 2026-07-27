@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Container, Eyebrow } from "@/components/Section";
+import heroPortrait from "../../public/images/rimma-vera/hero-portrait.png";
 
 export function Hero() {
   return (
@@ -12,9 +14,9 @@ export function Hero() {
       <div aria-hidden className="hero-grain" />
 
       <Container className="relative">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.04fr_0.96fr] lg:gap-12 xl:gap-20">
+        <div className="grid items-center gap-y-0 lg:grid-cols-[1.04fr_0.96fr] lg:gap-x-12 xl:gap-x-20">
           <div className="relative z-10">
-            <Eyebrow>Онлайн-консультирование · 18+</Eyebrow>
+            <Eyebrow>Онлайн/оффлайн-консультирование · 18+</Eyebrow>
             <h1 className="mt-6 max-w-[760px] font-display text-[3.35rem] leading-[0.9] font-medium tracking-[-0.06em] text-[var(--text)] sm:text-7xl lg:text-[5.4rem] xl:text-[6.1rem]">
               Понять, что с вами происходит. Изменить то, что повторяется.
             </h1>
@@ -22,8 +24,22 @@ export function Hero() {
               Помогаю разобраться с психосоматикой, тревогой, пищевыми срывами и
               прокрастинацией — бережно, эффективно и без осуждения.
             </p>
+          </div>
 
-            <div className="mt-8 max-w-xl border-l border-[var(--accent-soft)] pl-4">
+          <div className="relative mx-auto mt-8 aspect-[5/6] w-full max-w-[520px] overflow-hidden rounded-[24px] border border-[var(--line)] bg-[#2b2426] shadow-[0_24px_70px_rgb(91_47_65_/_0.18)] sm:aspect-[4/5] sm:rounded-[32px] lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:mt-0">
+            <Image
+              src={heroPortrait}
+              alt="Римма Вера — психолог и психосоматолог"
+              fill
+              priority
+              quality={86}
+              sizes="(max-width: 1023px) calc(100vw - 40px), 46vw"
+              className="object-cover object-[50%_36%] sm:object-[50%_38%]"
+            />
+          </div>
+
+          <div className="relative z-10 mt-8 flex flex-col lg:col-start-1">
+            <div className="order-2 mt-8 max-w-xl border-l border-[var(--accent-soft)] pl-4 lg:order-1 lg:mt-0">
               <p className="font-display text-2xl leading-tight tracking-[-0.025em] text-[var(--accent)] sm:text-[1.7rem]">
                 Не чинить человека.
                 <br />
@@ -35,7 +51,7 @@ export function Hero() {
               </p>
             </div>
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="order-1 flex flex-col gap-3 sm:flex-row lg:order-2 lg:mt-9">
               <ButtonLink className="w-full sm:w-auto">
                 Получить мини-продукты
               </ButtonLink>
@@ -44,7 +60,7 @@ export function Hero() {
               </ButtonLink>
             </div>
 
-            <div className="mt-9 flex flex-wrap gap-x-5 gap-y-3 text-xs font-medium tracking-[0.04em] text-[var(--muted)]">
+            <div className="order-3 mt-9 flex flex-wrap gap-x-5 gap-y-3 text-xs font-medium tracking-[0.04em] text-[var(--muted)]">
               <span className="inline-flex items-center gap-2">
                 <i aria-hidden className="signal-dot" />
                 Без давления
@@ -57,43 +73,6 @@ export function Hero() {
                 <i aria-hidden className="signal-dot" />
                 В вашем ритме
               </span>
-            </div>
-          </div>
-
-          <div className="relative mx-auto w-full max-w-[540px] lg:max-w-none">
-            <div className="hero-art">
-              <div aria-hidden className="hero-art__ring hero-art__ring--one" />
-              <div aria-hidden className="hero-art__ring hero-art__ring--two" />
-              <div aria-hidden className="hero-art__warmth" />
-              <div aria-hidden className="hero-art__silhouette">
-                <span className="hero-art__head" />
-                <span className="hero-art__shoulders" />
-              </div>
-
-              <div className="hero-art__note hero-art__note--thought">
-                Мысль
-              </div>
-
-              <div className="hero-art__note hero-art__note--emotion">
-                Эмоция
-              </div>
-
-              <div className="hero-art__note hero-art__note--action">
-                Действие
-              </div>
-
-              <div className="hero-art__note hero-art__note--body">Тело</div>
-
-              <div className="hero-art__word">
-                <span className="hero-art__word-small">
-                  Не «что со мной не так?»
-                </span>
-                <span className="hero-art__word-main">
-                  А «как это
-                  <br />
-                  работает?»
-                </span>
-              </div>
             </div>
           </div>
         </div>

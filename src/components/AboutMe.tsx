@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { Container, Eyebrow, Section } from "@/components/Section";
 import { about } from "@/lib/constants";
+import aboutSeated from "../../public/images/rimma-vera/about-seated.png";
 
 export function AboutMe() {
   return (
@@ -19,12 +21,25 @@ export function AboutMe() {
         </div>
 
         <div className="about-grid">
-          <article className="about-profile">
-            <span className="about-profile__monogram" aria-hidden>
-              RV
-            </span>
+          <article className="about-photo">
+            <Image
+              src={aboutSeated}
+              alt="Римма Вера, психолог и психосоматолог"
+              fill
+              quality={84}
+              sizes="(max-width: 1023px) calc(100vw - 40px), 40vw"
+              className="object-cover object-[50%_48%]"
+            />
+            <div aria-hidden className="about-photo__gradient" />
+            <div className="about-photo__caption">
+              <p>RIMMA VERA</p>
+              <p>Психолог · Психосоматолог</p>
+            </div>
+          </article>
+
+          <div className="about-details">
             <Eyebrow className="text-[var(--accent)]">Rimma Vera</Eyebrow>
-            <h3 className="mt-7 max-w-md font-display text-[2.55rem] leading-[0.9] font-medium tracking-[-0.055em] text-[var(--text)] sm:text-5xl">
+            <h3 className="mt-5 max-w-xl font-display text-[2.3rem] leading-[0.92] font-medium tracking-[-0.05em] text-[var(--text)] sm:text-[2.8rem]">
               {about.role}
             </h3>
             <div className="about-specialties">
@@ -32,10 +47,7 @@ export function AboutMe() {
                 <span key={specialty}>{specialty}</span>
               ))}
             </div>
-          </article>
-
-          <div className="about-details">
-            <p className="max-w-2xl text-[1rem] leading-7 text-[var(--muted)] sm:text-[1.05rem] sm:leading-8">
+            <p className="mt-8 max-w-2xl text-[1rem] leading-7 text-[var(--muted)] sm:text-[1.05rem] sm:leading-8">
               {about.story}
             </p>
 

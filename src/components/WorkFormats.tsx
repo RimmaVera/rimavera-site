@@ -101,11 +101,6 @@ export function WorkFormats() {
                   </p>
                 </div>
                 <div className="mt-8 flex flex-col gap-4 border-t border-current/12 pt-5">
-                  {format.secondaryFormat && (
-                    <span className="work-format-card__extra">
-                      {format.secondaryFormat}
-                    </span>
-                  )}
                   {format.price && (
                     <span className="work-format-card__price">
                       {format.price}
